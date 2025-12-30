@@ -23,15 +23,31 @@ StockVision/
 │   └── backtest.py         # Backtesting logic
 ├── frontend/
 │   └── app.py              # Streamlit web application
-├── data/
-│   └── sample_data.csv     # Sample stock data
-├── uploads/                # Uploaded CSV files
-├── models/                 # Trained model files
+├── data/                  # Generated or sample datasets (not tracked)
+├── uploads/               # Runtime CSV uploads (auto-created)
+├── models/                # Trained ML models (auto-created)
 ├── tests/
 │   └── test_api.py         # API test script
 ├── requirements.txt        # Python dependencies
 └── README.md              # This file
 ```
+
+## Repository Notes (Important)
+
+The following directories/files are not included in the GitHub repository:
+
+- `venv/` – Virtual environment (system-specific)
+- `data/` – Sample or generated datasets
+- `uploads/` – User-uploaded CSV files
+- `models/` – Trained ML model artifacts
+- `*.db` – Local database files
+
+These will be automatically created when running the project or setup script.
+
+## Git Ignore
+
+This project uses a `.gitignore` file to exclude virtual environments,
+datasets, trained models, uploads, cache files, and local databases.
 
 ## Installation
 
@@ -104,9 +120,21 @@ python tests/test_api.py
 
 ## Sample Data
 
-A sample CSV file is included in the `data/` directory. The expected format is:
-- Date, Open, High, Low, Close, Volume
-- CSV files should have headers
+A sample CSV file named **`sample_data.csv`** is provided for reference.  
+The dataset must follow the format below:
+
+**Required Columns:**
+- Date
+- Open
+- High
+- Low
+- Close
+- Volume
+
+**Notes:**
+- The CSV file must contain a header row.
+- Date should be in a valid date format (YYYY-MM-DD recommended).
+
 
 ## Model Training
 
@@ -154,4 +182,5 @@ Backend API:  http://localhost:5000
 Frontend UI:  http://localhost:8501
 
 The browser should open automatically.
+
 If not, manually open: http://localhost:8501
